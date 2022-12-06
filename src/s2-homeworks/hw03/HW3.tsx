@@ -23,19 +23,17 @@ export type UserType = {
     name: string // need to fix any
 }
 
-export const pureAddUserCallback = (name: string,
-                                    setUsers: (users: Array<UserType> ) => void,
-                                    users: Array<UserType>) => { // need to fix any
-    const user = { // need to fix
+export const pureAddUserCallback = (name: string, setUsers: (users:UserType[])=>void, users: UserType[]) => { // need to fix any
+    const user = {
         _id: new Date().getHours() + new Date().getMinutes(),
-        name,
+        name:name
+        // need to fix
     }
-
     setUsers([...users, user])
 }
 
 const HW3 = () => {
-    const [users, setUsers] = useState<Array<UserType>>([]) // need to fix any
+    const [users, setUsers] = useState<UserType[]>([]) // need to fix any
 
     const addUserCallback = (name: string) => { // need to fix any
         pureAddUserCallback(name, setUsers, users)
