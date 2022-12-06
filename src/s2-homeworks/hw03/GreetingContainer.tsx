@@ -11,10 +11,14 @@ export const pureAddUser = (name: string, setError: (e: string) => void, setName
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 
 
-    name === '' ?setError('Ошибка') :
+    if (name === '') {
+        setError('Empty input')
+    } else {
         addUserCallback(name.trim())
         setError('')
         setName('')
+
+    }
 
 }
 
@@ -56,7 +60,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const totalUsers = users.length // need to fix
-    const lastUserName = users.length > 0? users[users.length - 1].name: ''// need to fix
+    const lastUserName = users.length > 0 ? users[users.length - 1].name : ''// need to fix
 
     return (
         <Greeting
