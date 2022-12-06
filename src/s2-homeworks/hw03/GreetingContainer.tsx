@@ -23,7 +23,7 @@ export const pureOnBlur = (name: string, setError: (e: string) => void) => { // 
 }
 
 export const pureOnEnter = (e: KeyboardEvent, addUser: () => void) => { // если нажата кнопка Enter - добавить
-    if (e.key === 'Enter') addUser()
+    e.key === 'Enter' && addUser()
 }
 
 // более простой и понятный для новичков
